@@ -2,15 +2,24 @@ project:
   name: start
 
 spring:
+  messages:
+    basename: i18n/messages/home
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/giraffe
     username: root
     password: root
+
+  thymeleaf:
+    cache: false #重点是这个要设置false不然会无效
+#    　　prefix: classpath:/thymeleaf/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
 #mybatis-plus
 mybatis-plus:
   ## 这个可以不用配置，因其默认就是这个路径
-  mapper-locations: classpath:/mybatis/*mapper.xml
+  mapper-locations: classpath:/mybatis/*Mapper.xml
   #实体扫描，多个package用逗号或者分号分隔
   #typeAliasesPackage: com.holmium.springboot.repository.*.entity
   global-config:
@@ -34,6 +43,7 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
+  type-aliases-package: com.giraffe.tree.sys.entity
 logging:
   level:
     cn.zhxu.bs: DEBUG

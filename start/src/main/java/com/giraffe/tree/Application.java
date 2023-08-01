@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Frank Zhang
  */
 @SpringBootApplication(scanBasePackages = {"com.giraffe.tree", "com.alibaba.cola"})
-@MapperScan("com.giraffe.tree.mapper")
+@MapperScan(basePackages={"com.giraffe.tree.mapper","com.giraffe.tree.sys.mapper"})
 public class Application {
 
     public static void main(String[] args) {
